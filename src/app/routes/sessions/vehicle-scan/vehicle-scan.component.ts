@@ -1,16 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
-import {GeolocationService} from '@ng-web-apis/geolocation';
-import { first, take } from 'rxjs/operators';
 import {Map} from 'leaflet';
 import * as L from 'leaflet';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss',],
+  selector: 'app-vehicle-scan',
+  templateUrl: './vehicle-scan.component.html',
+  styleUrls: ['./vehicle-scan.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent implements OnInit {
+export class VehicleScanComponent implements OnInit {
   private map: Map;
   private zoom: number;
 
@@ -18,10 +16,7 @@ export class DashboardComponent implements OnInit {
   lat:any;
   lng:any;
 
-  constructor(private cdr: ChangeDetectorRef, private readonly geolocation$: GeolocationService) {
-    // geolocation$.subscribe(position => this.doSomethingWithPosition(position));
-    geolocation$.pipe(take(1)).subscribe(position => this.doSomethingWithPosition(position));
-
+  constructor(private cdr: ChangeDetectorRef) {
     if (navigator)
     {
       console.log('in navigator');
@@ -35,15 +30,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-//   getPosition() {
-//     this.geolocation$.subscribe(position =>
-//      this.doSomethingWithPosition(position));
-// }
-
-  doSomethingWithPosition(position){
-    console.log(position);
-    this.currentPosition = position;
-  }
 
   ngOnInit() {}
 

@@ -1,1 +1,27 @@
 <page-header></page-header>
+
+ <!-- <div *ngIf="currentPosition !== null || currentPosition !== undefined">
+  <p>{{currentPosition.coords.latitude}}</p>
+  <p>{{currentPosition.coords.longitude}}</p>
+</div> -->
+
+<div>
+  <!-- <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng">
+     </agm-marker>
+  </agm-map> -->
+
+  <!-- <agm-map style="height: 500px;" [zoom]='19' [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map> -->
+</div>
+
+
+<div class="fs-container">
+  <app-map
+  (map$)="receiveMap($event)"
+  (zoom$)="receiveZoom($event)"
+  id='main-map'
+  ></app-map></div>
+<!--
+<app-component-using-position [position]="geolocation$ | async"></app-component-using-position> -->

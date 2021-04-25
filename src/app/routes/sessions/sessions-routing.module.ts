@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { Error403Component } from './403.component';
 import { Error404Component } from './404.component';
 import { Error500Component } from './500.component';
+import { VehicleScanComponent } from './vehicle-scan/vehicle-scan.component';
 
 const routes: Routes = [
   { path: '403', component: Error403Component },
   { path: '404', component: Error404Component },
   { path: '500', component: Error500Component },
+  { path: 'scan', component: VehicleScanComponent },
 ];
 
 @NgModule({

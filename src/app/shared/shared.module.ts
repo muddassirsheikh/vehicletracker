@@ -18,11 +18,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { ErrorCodeComponent } from './components/error-code/error-code.component';
+import { MapComponent } from './components/map/map.component';
 
 import { DisableControlDirective } from './directives/disable-control.directive';
 
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { ToObservablePipe } from './pipes/to-observable.pipe';
+
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 
 const MODULES = [
   MaterialModule,
@@ -36,8 +39,9 @@ const MODULES = [
   FormlyMaterialModule,
   ToastrModule,
   TranslateModule,
+  LeafletModule
 ];
-const COMPONENTS = [BreadcrumbComponent, PageHeaderComponent, ErrorCodeComponent];
+const COMPONENTS = [BreadcrumbComponent, PageHeaderComponent, ErrorCodeComponent, MapComponent];
 const COMPONENTS_DYNAMIC = [];
 const DIRECTIVES = [DisableControlDirective];
 const PIPES = [SafeUrlPipe, ToObservablePipe];

@@ -43,7 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         deps: [HttpClient],
       },
     }),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: BASE_URL, useValue: environment.baseUrl },

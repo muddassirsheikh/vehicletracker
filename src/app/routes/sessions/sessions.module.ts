@@ -5,8 +5,9 @@ import { SessionsRoutingModule } from './sessions-routing.module';
 import { Error403Component } from './403.component';
 import { Error404Component } from './404.component';
 import { Error500Component } from './500.component';
+import { VehicleScanComponent } from './vehicle-scan/vehicle-scan.component';
 
-const COMPONENTS = [Error404Component, Error403Component, Error500Component];
+const COMPONENTS = [Error404Component, Error403Component, Error500Component, VehicleScanComponent];
 const COMPONENTS_DYNAMIC = [];
 
 @NgModule({
