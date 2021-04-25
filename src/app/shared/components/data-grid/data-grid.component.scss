@@ -1,0 +1,24 @@
+:host ::ng-deep .mtx-grid {
+  height: 480px;
+}
+
+.data-grid-options {
+  .mat-checkbox,
+  .mat-radio-group {
+    margin-right: 8px;
+
+    [dir='rtl'] :host ::ng-deep & {
+      margin-right: auto;
+      margin-left: 8px;
+    }
+  }
+
+  .mat-radio-button {
+    margin-right: 8px;
+
+    [dir='rtl'] :host ::ng-deep & {
+      margin-right: auto;
+      margin-left: 8px;
+    }
+  }
+}

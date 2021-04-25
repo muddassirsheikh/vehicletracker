@@ -15,9 +15,9 @@ export interface Token {
 }
 
 export const admin: User = {
-  id: 1,
-  name: 'Zongbin',
-  email: 'nzb329@163.com',
+  id: 3,
+  name: 'Admin',
+  email: 'admin@gmail.com',
   avatar: './assets/images/avatar.jpg',
 };
 

@@ -35,7 +35,10 @@ export class AuthService {
     //     tap(token => this.token.set(token)),
     //     map(() => this.check())
     //   );
-    const _token = { access_token: 'MW56YjMyOUAxNjMuY29tWm9uZ2Jpbg==', token_type: 'bearer' };
+    var _token = null;
+    if ( email === 'admin' && password === 'admin'){
+      _token = { access_token: 'MW56YjMyOUAxNjMuY29tWm9uZ2Jpbg==', token_type: 'bearer' };
+    }
     return of(_token).pipe(
       tap(token => this.token.set(token)),
       map(() => this.check())

@@ -38,6 +38,14 @@ export class InMemDataService implements InMemoryDbService {
       email: 'recca0120@gmail.com',
       avatar: './assets/images/avatars/avatar-10.jpg',
     },
+    {
+      id: 3,
+      username: 'admin',
+      password: 'admin',
+      name: 'Admin',
+      email: 'admin@163.com',
+      avatar: './assets/images/avatar.jpg',
+    },
   ];
 
   createDb(reqInfo?: RequestInfo): {} | Observable<{}> | Promise<{}> {

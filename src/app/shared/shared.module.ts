@@ -19,6 +19,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { ErrorCodeComponent } from './components/error-code/error-code.component';
 import { MapComponent } from './components/map/map.component';
+import { DataGridComponent } from './components/data-grid/data-grid.component';
 
 import { DisableControlDirective } from './directives/disable-control.directive';
 
@@ -41,7 +42,7 @@ const MODULES = [
   TranslateModule,
   LeafletModule
 ];
-const COMPONENTS = [BreadcrumbComponent, PageHeaderComponent, ErrorCodeComponent, MapComponent];
+const COMPONENTS = [BreadcrumbComponent, PageHeaderComponent, ErrorCodeComponent, MapComponent, DataGridComponent];
 const COMPONENTS_DYNAMIC = [];
 const DIRECTIVES = [DisableControlDirective];
 const PIPES = [SafeUrlPipe, ToObservablePipe];

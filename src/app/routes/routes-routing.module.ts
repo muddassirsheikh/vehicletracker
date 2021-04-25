@@ -18,11 +18,15 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      {
-        path: 'sessions',
-        loadChildren: () => import('./sessions/sessions.module').then(m => m.SessionsModule),
-      },
+      // {
+      //   path: 'sessions',
+      //   loadChildren: () => import('./sessions/sessions.module').then(m => m.SessionsModule),
+      // },
     ],
+  },
+  {
+    path: 'sessions',
+    loadChildren: () => import('./sessions/sessions.module').then(m => m.SessionsModule),
   },
   {
     path: 'auth',
