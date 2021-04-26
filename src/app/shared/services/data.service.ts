@@ -21,14 +21,14 @@ export class DataService {
 
   getVehicles() {
     // return this.http.get<RepoSearchList>('https://apivehicletracker.azurewebsites.net/vehicle', { params });
-    return this.http.get('http://localhost:31686/vehicle')
+    return this.http.get('https://apivehicletracker.azurewebsites.net/vehicle')
     .pipe(map(response => {return response;}),
     catchError(this.handleError));
   }
 
   getVehicle(id:any) {
     // return this.http.get<RepoSearchList>('https://apivehicletracker.azurewebsites.net/vehicle', { params });
-    return this.http.get('http://localhost:31686/vehicle/'+id)
+    return this.http.get('https://apivehicletracker.azurewebsites.net/vehicle/'+id)
     .pipe(map(response => {return response;}),
     catchError(this.handleError));
   }
@@ -42,7 +42,7 @@ export class DataService {
     track.Longitude = long;
     track.Date = new Date();
     console.log(track);
-    return this.http.post('http://localhost:31686/vehicle', track, {headers: this.header})
+    return this.http.post('https://apivehicletracker.azurewebsites.net/vehicle', track, {headers: this.header})
     .pipe(map(response => {return response;}),
     catchError(this.handleError));
   }
