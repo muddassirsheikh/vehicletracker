@@ -1,9 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 
 import { MtxGridColumn } from '@ng-matero/extensions';
 import { MtxDialog } from '@ng-matero/extensions/dialog';
-import { TablesDataService } from '../../services/data.service';
+import { DataService } from '../../services/data.service';
 import { TranslateService } from '@ngx-translate/core';
 
 import { MapComponent } from '../map/map.component';
@@ -13,7 +14,7 @@ import { MapComponent } from '../map/map.component';
   templateUrl: './data-grid.component.html',
   styleUrls: ['./data-grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [TablesDataService],
+  providers: [DataService],
 })
 export class DataGridComponent implements OnInit {
   @ViewChild('selectTpl', {static: true}) selectTpl: TemplateRef<any>;
@@ -49,7 +50,11 @@ export class DataGridComponent implements OnInit {
     return p;
   }
 
-  constructor(private translate: TranslateService, public dialog: MtxDialog, private remoteSrv: TablesDataService, private cdr: ChangeDetectorRef) {}
+  constructor(private translate: TranslateService,
+    public dialog: MtxDialog,
+    private remoteSrv: DataService,
+    private cdr: ChangeDetectorRef,
+    private router: Router) {}
 
   ngOnInit() {
     this.columns = [
@@ -82,14 +87,15 @@ export class DataGridComponent implements OnInit {
     this.getData();
   }
 
-  edit(value: any) {
-    const dialogRef = this.dialog.originalOpen(MapComponent, {
-      width: '600px',
-      height: '600px',
-      data: { record: value },
-    });
+  edit(vehicle: any) {
+    // const dialogRef = this.dialog.originalOpen(MapComponent, {
+    //   width: '600px',
+    //   height: '600px',
+    //   data: { record: value },
+    // });
 
-    dialogRef.afterClosed().subscribe(() => console.log('The dialog was closed'));
+    // dialogRef.afterClosed().subscribe(() => console.log('The dialog was closed'));
+    this.router.navigate(['/details'], { queryParams: { id: vehicle.id }});
   }
 
   getData() {

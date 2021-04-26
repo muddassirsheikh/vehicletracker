@@ -35,6 +35,7 @@ export class MapComponent implements OnInit, OnDestroy {
   };
 
   onMapReady(map: Map) {
+    console.log('ready');
     this.map = map;
     this.map$.emit(map);
     this.zoom = map.getZoom();

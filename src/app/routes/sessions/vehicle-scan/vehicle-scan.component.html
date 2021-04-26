@@ -1,6 +1,39 @@
-<div class="fs-container">
+<!-- <div class="fs-container">
   <app-map
   (map$)="receiveMap($event)"
   (zoom$)="receiveZoom($event)"
   id='main-map'></app-map>
+</div> -->
+<!-- <div *ngIf="vehicle">
+  <mat-card>
+    <span><b>Make: </b> {{vehicle.make}}</span><br/>
+    <span><b>Model: </b> {{vehicle.model}}</span><br/>
+    <span><b>Color: </b> {{vehicle.color}}</span><br/>
+    <span><b>Chasis Number: </b> {{vehicle.chasisNumber}}</span><br/>
+    <span><b>Engine Number: </b> {{vehicle.engineNumber}}</span><br/>
+    <span><b>Registration Number: </b> {{vehicle.registrationNumber}}</span><br/>
+    <span><b>Is Flagged: </b> {{vehicle.isFlagged}}</span><br/>
+  </mat-card>
+</div> -->
+<div class="matero-row" fxLayout="row wrap" *ngIf="vehicle">
+  <div class="matero-col" fxFlex.gt-sm="25" fxFlex.gt-xs="50" fxFlex="100">
+    <mat-card [ngClass]="['text-white', 'bg-blue-500']">
+      <mat-card-title>Vehicle Details</mat-card-title>
+      <mat-card-content>
+        <span><b>Make: </b> {{vehicle.make}}</span><br />
+        <span><b>Model: </b> {{vehicle.model}}</span><br />
+        <span><b>Color: </b> {{vehicle.color}}</span><br />
+        <span><b>Chasis Number: </b> {{vehicle.chasisNumber}}</span><br />
+        <span><b>Engine Number: </b> {{vehicle.engineNumber}}</span><br />
+        <span><b>Registration Number: </b> {{vehicle.registrationNumber}}</span><br />
+      </mat-card-content>
+      <mat-card-footer>
+        <div fxFlex fxLayoutAlign="end center" *ngIf="vehicle.isFlagged" [style.color]="'red'">
+          <!-- <span><b>Is Flagged: </b> {{vehicle.isFlagged}}</span><br /> -->
+          <span><b>Flagged</b></span><br/>
+        </div>
+      </mat-card-footer>
+    </mat-card>
+  </div>
 </div>
+

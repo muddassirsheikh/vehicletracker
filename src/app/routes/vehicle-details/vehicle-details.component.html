@@ -1,0 +1,103 @@
+<page-header></page-header>
+<div *ngIf="vehicle">
+  <div>
+    <mat-card>
+      <mat-card-title>Vehicle Details</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
+            ><span><b>Make: </b> {{ vehicle.make }}</span></mat-list-item
+          >
+          <mat-list-item
+            ><span><b>Model: </b> {{ vehicle.model }}</span></mat-list-item
+          >
+          <mat-list-item
+            ><span><b>Color: </b> {{ vehicle.color }}</span></mat-list-item
+          >
+          <mat-list-item
+            ><span><b>Chasis Number: </b> {{ vehicle.chasisNumber }}</span></mat-list-item
+          >
+          <mat-list-item
+            ><span><b>Engine Number: </b> {{ vehicle.engineNumber }}</span></mat-list-item
+          >
+          <mat-list-item
+            ><span
+              ><b>Registration Number: </b> {{ vehicle.registrationNumber }}</span
+            ></mat-list-item
+          >
+          <mat-list-item *ngIf="vehicle.isFlagged" [style.color]="'red'"
+            ><span><b>Flagged </b></span></mat-list-item
+          >
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-divider></mat-divider>
+  <div *ngIf="vehicle.owners">
+    <mtx-grid
+      [data]="vehicle.owners"
+      [columns]="ownerColumns"
+      [columnResizable]="columnResizable"
+      [multiSelectable]="multiSelectable"
+      [rowSelectable]="rowSelectable"
+      [hideRowSelectionCheckbox]="hideRowSelectionCheckbox"
+      [rowHover]="rowHover"
+      [rowStriped]="rowStriped"
+      [showToolbar]="showToolbar"
+      [toolbarTitle]="'Vehicle Owner List'"
+      [columnHideable]="columnHideable"
+      [columnMovable]="columnMovable"
+      [expandable]="expandable"
+      [expansionTemplate]="expansionTpl"
+      [pageOnFront]="showPaginator"
+      [showPaginator]="showPaginator"
+      [pageSizeOptions]="[5, 10, 50, 100]"
+      [pageIndex]="0"
+      [pageSize]="5"
+      (sortChange)="changeSort($event)"
+      (selectionChange)="changeSelect($event)"
+    >
+    </mtx-grid>
+  </div>
+  <mat-divider></mat-divider>
+  <div *ngIf="vehicle.tracks">
+    <mtx-grid
+      [data]="vehicle.tracks"
+      [columns]="trackColumns"
+      [columnResizable]="columnResizable"
+      [multiSelectable]="multiSelectable"
+      [rowSelectable]="rowSelectable"
+      [hideRowSelectionCheckbox]="hideRowSelectionCheckbox"
+      [rowHover]="rowHover"
+      [rowStriped]="rowStriped"
+      [showToolbar]="showToolbar"
+      [toolbarTitle]="'Vehicle Tracking List'"
+      [columnHideable]="columnHideable"
+      [columnMovable]="columnMovable"
+      [expandable]="expandable"
+      [expansionTemplate]="expansionTpl"
+      [pageOnFront]="showPaginator"
+      [showPaginator]="showPaginator"
+      [pageSizeOptions]="[5, 10, 50, 100]"
+      [pageIndex]="0"
+      [pageSize]="5"
+      (sortChange)="changeSort($event)"
+      (selectionChange)="changeSelect($event)"
+    >
+    </mtx-grid>
+  </div>
+</div>
+
+<div>
+  <div class="fs-container">
+    <app-map (map$)="receiveMap($event)" (zoom$)="receiveZoom($event)" id="main-map"></app-map>
+  </div>
+</div>
+
+<ng-template #expansionTpl let-row>
+  {{ row.name }}
+</ng-template>
+
+<ng-template #selectTpl let-row>
+  <mat-slide-toggle [checked]="row.isFlagged"></mat-slide-toggle>
+</ng-template>
